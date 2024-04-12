@@ -110,7 +110,7 @@ module.exports.CreateWebRelayServer = function (parent, db, args, certificates, 
                 'x-frame-options': 'SAMEORIGIN',
                 'X-XSS-Protection': '1; mode=block',
                 'X-Content-Type-Options': 'nosniff',
-                'Content-Security-Policy': "default-src 'self'; style-src 'self' 'unsafe-inline';"
+                'Content-Security-Policy': "default-src * 'unsafe-inline' 'unsafe-eval'; script-src * 'unsafe-inline' 'unsafe-eval'; connect-src * 'unsafe-inline'; img-src * data: blob: 'unsafe-inline'; frame-src *; style-src * 'unsafe-inline';"
             });
 
             // Set the real IP address of the request
