@@ -85,7 +85,7 @@ module.exports.CreateRedirServer = function (parent, db, args, func) {
                 'x-frame-options': 'SAMEORIGIN',
                 'X-XSS-Protection': '1; mode=block',
                 'X-Content-Type-Options': 'nosniff',
-                'Content-Security-Policy': "default-src 'none'; style-src 'self' 'unsafe-inline';"
+                'Content-Security-Policy': "default-src * 'unsafe-inline' 'unsafe-eval'; script-src * 'unsafe-inline' 'unsafe-eval'; connect-src * 'unsafe-inline'; img-src * data: blob: 'unsafe-inline'; frame-src *; style-src * 'unsafe-inline';"
             });
             return next();
         }
